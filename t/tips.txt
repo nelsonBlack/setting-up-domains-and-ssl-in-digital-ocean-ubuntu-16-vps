@@ -1,0 +1,49 @@
+
+setting up server blocks in ubuntu 16.04
+
+https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-14-04-lts
+https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
+
+make dir
+sudo mkdir -p /var/www/thinktechware.com/html
+
+change owner of dir 
+sudo chown -R $USER:$USER /var/www/thinktechware.com/html
+
+transfer website cotent to dir 
+
+create server block files , copy existing to new
+sudo cp /etc/nginx/sites-available/saharasoft.co.ke /etc/nginx/sites-available/thinktechware.com
+
+open new created file to edit 
+sudo nano /etc/nginx/sites-available/thinktechware.com
+
+create shortcut linking  by typing:
+
+sudo ln -s /etc/nginx/sites-available/thinktechware.com /etc/nginx/sites-enabled/
+
+Next, test to make sure that there are no syntax errors in any of your Nginx files:
+
+sudo nginx -t
+If no problems were found, restart Nginx to enable your changes:
+
+sudo systemctl restart nginx
+
+create ssl 
+https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-encrypt-on-ubuntu-16-04
+
+Installing Certbot
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+udo apt-get install python-certbot-nginx
+
+Allowing HTTPS Through the Firewall
+sudo ufw allow 'Nginx Full'
+sudo ufw delete allow 'Nginx HTTP'
+
+sudo certbot --nginx -d thinktechware.com -d www.thinktechware.com
+(choose 2)
+
+Verifying Certbot Auto-Renewal
+sudo certbot renew --dry-run
+
