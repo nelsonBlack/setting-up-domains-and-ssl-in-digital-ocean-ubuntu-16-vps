@@ -5,22 +5,22 @@ https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-bloc
 https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04
 
 make dir
-sudo mkdir -p /var/www/thinktechware.com/html
+sudo mkdir -p /var/www/putyourdomainhere.com/html
 
 change owner of dir 
-sudo chown -R $USER:$USER /var/www/thinktechware.com/html
+sudo chown -R $USER:$USER /var/www/putyourdomainhere.com/html
 
 transfer website cotent to dir 
 
 create server block files , copy existing to new
-sudo cp /etc/nginx/sites-available/saharasoft.co.ke /etc/nginx/sites-available/thinktechware.com
+sudo cp /etc/nginx/sites-available/saharasoft.co.ke /etc/nginx/sites-available/putyourdomainhere.com
 
 open new created file to edit 
-sudo nano /etc/nginx/sites-available/thinktechware.com
+sudo nano /etc/nginx/sites-available/putyourdomainhere.com
 
 create shortcut linking  by typing:
 
-sudo ln -s /etc/nginx/sites-available/thinktechware.com /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/putyourdomainhere.com /etc/nginx/sites-enabled/
 
 Next, test to make sure that there are no syntax errors in any of your Nginx files:
 
@@ -41,7 +41,7 @@ Allowing HTTPS Through the Firewall
 sudo ufw allow 'Nginx Full'
 sudo ufw delete allow 'Nginx HTTP'
 
-sudo certbot --nginx -d thinktechware.com -d www.thinktechware.com
+sudo certbot --nginx -d putyourdomainhere.com -d www.putyourdomainhere.com
 (choose 2)
 
 Verifying Certbot Auto-Renewal
