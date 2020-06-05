@@ -35,7 +35,7 @@ https://www.digitalocean.com/community/tutorials/how-to-secure-nginx-with-let-s-
 Installing Certbot
 sudo add-apt-repository ppa:certbot/certbot
 sudo apt-get update
-udo apt-get install python-certbot-nginx
+sudo apt-get install python-certbot-nginx
 
 Allowing HTTPS Through the Firewall
 sudo ufw allow 'Nginx Full'
